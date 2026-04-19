@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Access Systems – Industrial Maintenance & Project Services</title>
+  <meta name="description" content="Melbourne-based industrial maintenance and project services company specialising in mechanical, electrical, fabrication, automation, and industrial access solutions across Australia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0d1627;
+      --navy-mid:   #162032;
+      --navy-light: #1e2e47;
+      --blue:       #2563eb;
+      --blue-light: #3b82f6;
+      --blue-glow:  rgba(37,99,235,0.15);
+      --white:      #ffffff;
+      --off-white:  #f0f4f8;
+      --text-muted: #94a3b8;
+      --text-light: #cbd5e1;
+      --border:     rgba(255,255,255,0.08);
+      --card-bg:    rgba(255,255,255,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(13, 22, 39, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-light) !important; color: var(--white) !important; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ───────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('hero-bg.jpg') center/cover no-repeat;
+      filter: brightness(0.25);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,22,39,0.85) 0%, rgba(37,99,235,0.12) 100%);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      padding-top: 72px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(37,99,235,0.35);
+      color: var(--blue-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: '';
+      display: block;
+      width: 8px; height: 8px;
+      background: var(--blue-light);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: var(--blue-light); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--blue-light); background: var(--blue-glow); }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--blue-light);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SECTIONS ───────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* ── ABOUT STRIP ────────────────────────────────── */
+    .about-strip {
+      background: var(--navy-mid);
+      padding: 5rem 2rem;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-text h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+    .about-text h2 span { color: var(--blue-light); }
+    .about-text p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .about-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .ah-icon {
+      width: 36px; height: 36px;
+      background: var(--blue-glow);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ah-icon svg { width: 18px; height: 18px; }
+    .ah-text { font-size: 0.85rem; font-weight: 600; color: var(--text-light); line-height: 1.4; }
+    .about-acn {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .about-acn strong { color: var(--text-light); }
+    .about-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+    .stat-card:first-child {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(37,99,235,0.05));
+      border-color: rgba(37,99,235,0.3);
+    }
+    .stat-big { font-size: 2.8rem; font-weight: 800; color: var(--blue-light); line-height: 1; }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+    /* ── SERVICES ───────────────────────────────────── */
+    .services { background: var(--navy); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .service-card:hover {
+      border-color: rgba(37,99,235,0.4);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-3px);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04));
+      border-color: rgba(37,99,235,0.25);
+    }
+    .service-card.featured::before { opacity: 1; background: linear-gradient(90deg, var(--blue), var(--blue-light)); }
+    .svc-icon {
+      width: 52px; height: 52px;
+      background: var(--blue-glow);
+      border: 1px solid rgba(37,99,235,0.25);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .svc-icon svg { width: 26px; height: 26px; color: var(--blue-light); }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+    .svc-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .svc-list li {
+      font-size: 0.83rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .svc-list li::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .svc-badge {
+      display: inline-block;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(37,99,235,0.3);
+      color: var(--blue-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    /* ── INDUSTRIES ─────────────────────────────────── */
+    .industries { background: var(--navy-mid); }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .industry-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .industry-card:hover { border-color: rgba(37,99,235,0.35); transform: translateY(-2px); }
+    .ind-icon {
+      width: 44px; height: 44px;
+      background: var(--blue-glow);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .ind-icon svg { width: 22px; height: 22px; color: var(--blue-light); }
+    .industry-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .industry-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .industries-extra {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .ie-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .ie-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .ie-tag {
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.2);
+      color: var(--text-light);
+      font-size: 0.82rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+    .ie-cta { font-size: 0.9rem; color: var(--text-light); font-style: italic; flex-shrink: 0; }
+    .ie-cta strong { color: var(--blue-light); font-style: normal; }
+
+    /* ── WHY US ─────────────────────────────────────── */
+    .why { background: var(--navy); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .why-card:hover { border-color: rgba(37,99,235,0.35); transform: translateY(-2px); }
+    .why-icon {
+      width: 48px; height: 48px;
+      background: var(--blue-glow);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .why-icon svg { width: 24px; height: 24px; color: var(--blue-light); }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .why-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── CONTACT ────────────────────────────────────── */
+    .contact { background: var(--navy-mid); }
+    .contact-cta-bar {
+      background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
+      border-radius: 20px;
+      padding: 4rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-cta-bar::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .contact-cta-bar::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 280px; height: 280px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .contact-cta-bar h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 0.75rem; }
+    .contact-cta-bar p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; }
+    .contact-cta-bar .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      padding: 0.9rem 2.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.15s;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-cta-bar .btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .contact-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ci-icon {
+      width: 42px; height: 42px;
+      background: var(--blue-glow);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ci-icon svg { width: 20px; height: 20px; color: var(--blue-light); }
+    .ci-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+    .ci-value { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+    .ci-value a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .ci-value a:hover { color: var(--blue-light); }
+    .contact-person {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .person-avatar {
+      width: 52px; height: 52px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .person-name { font-weight: 700; font-size: 1.05rem; }
+    .person-role { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: #080f1c;
+      padding: 3rem 2rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.85rem; color: var(--text-muted); max-width: 280px; line-height: 1.65; }
+    .footer-links h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1rem; }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.875rem; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--blue-light); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-acn { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card.featured { grid-column: span 2; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.featured { grid-column: span 1; }
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-cta-bar { padding: 2.5rem 1.5rem; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 4rem 1.25rem; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .about-highlights { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.jpg" alt="Motion Access Systems" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="this.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Melbourne, Victoria &nbsp;·&nbsp; Serving Australia Nationwide</div>
+    <h1>Industrial Maintenance &amp; <span>Project Services</span> You Can Rely On</h1>
+    <p class="hero-sub">
+      Delivering reliability, safety, and minimal downtime for high-performance production, processing, and logistics environments — 24/7.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9z"/></svg>
+        Contact Us Now
+      </a>
+      <a href="#services" class="btn-outline">View Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label">Breakdown Response</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label">Specialist Divisions</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label">Industries Served</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">AU</div>
+        <div class="hero-stat-label">National Capability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ════════════════════════════════════════════ -->
+<section class="about-strip" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag">About Motion Access Systems</div>
+        <h2>Melbourne's Multi-Trade <span>Industrial Specialists</span></h2>
+        <p>
+          Motion Access Systems is a Melbourne-based industrial maintenance and project services company specialising in mechanical, electrical, fabrication, automation, and industrial access solutions across Australia.
+        </p>
+        <p>
+          We partner with industry to provide practical, production-focused solutions — keeping your operations safe, efficient, and running at full capacity.
+        </p>
+        <div class="about-highlights">
+          <div class="about-highlight">
+            <div class="ah-icon">
+              <svg fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="ah-text">Strong Safety Culture in Live Environments</div>
+          </div>
+          <div class="about-highlight">
+            <div class="ah-icon">
+              <svg fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="ah-text">24/7 Emergency Response</div>
+          </div>
+          <div class="about-highlight">
+            <div class="ah-icon">
+              <svg fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="ah-text">Multi-Trade In-House Team</div>
+          </div>
+          <div class="about-highlight">
+            <div class="ah-icon">
+              <svg fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M12 2v2m0 16v2M2 12h2m16 0h2"/></svg>
+            </div>
+            <div class="ah-text">National Project Capability</div>
+          </div>
+        </div>
+        <p class="about-acn">
+          <strong>Motion Access Systems Pty Ltd</strong> &nbsp;|&nbsp; ACN 695 644 225 &nbsp;|&nbsp; Melbourne, Victoria
+        </p>
+      </div>
+      <div class="about-visual">
+        <div class="stat-card">
+          <div class="stat-big">24/7</div>
+          <div class="stat-label">Breakdown Support &amp; Emergency Response</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">5</div>
+          <div class="stat-label">Specialist Divisions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">6+</div>
+          <div class="stat-label">Industries Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">AU</div>
+          <div class="stat-label">National Reach</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ═════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Our Specialist Divisions</div>
+      <h2 class="section-title">End-to-End Industrial Services</h2>
+      <p class="section-subtitle">Five specialist divisions working together to deliver reliability, safety, and performance across your entire operation.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Industrial Maintenance -->
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Industrial Maintenance</h3>
+        <p>Preventative and reactive maintenance programs designed to maximise uptime and extend asset life across your production environment.</p>
+        <ul class="svc-list">
+          <li>Preventative &amp; reactive programs</li>
+          <li>24/7 breakdown response</li>
+          <li>Fault finding &amp; optimisation</li>
+          <li>Asset life extension</li>
+        </ul>
+      </div>
+
+      <!-- Project & Technical -->
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+        </div>
+        <h3>Project &amp; Technical Services</h3>
+        <p>End-to-end project management from planning through to commissioning, including shutdown coordination and decommissioning.</p>
+        <ul class="svc-list">
+          <li>End-to-end project management</li>
+          <li>Shutdown coordination</li>
+          <li>Installation &amp; commissioning</li>
+          <li>Decommissioning services</li>
+        </ul>
+      </div>
+
+      <!-- Mechanical & Fabrication -->
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <h3>Mechanical &amp; Fabrication</h3>
+        <p>Precision mechanical services and hygienic stainless steel fabrication tailored for food-grade processing and industrial environments.</p>
+        <ul class="svc-list">
+          <li>Conveyor &amp; drive systems</li>
+          <li>PLC &amp; motor control</li>
+          <li>Hygienic stainless steel fabrication</li>
+          <li>Custom modifications</li>
+        </ul>
+      </div>
+
+      <!-- Automated Warehousing -->
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h5l2 5v3h-7V8zM5.5 21a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
+        </div>
+        <h3>Automated Warehousing</h3>
+        <p>Installation, integration, and ongoing maintenance of automated warehouse and sortation systems including ASRS and robotics.</p>
+        <ul class="svc-list">
+          <li>System installation</li>
+          <li>ASRS &amp; robotics integration</li>
+          <li>Mechanical servicing</li>
+          <li>Electrical support</li>
+        </ul>
+      </div>
+
+      <!-- Door & Dock Division -->
+      <div class="service-card featured">
+        <div class="svc-badge">24/7 Emergency Service</div>
+        <div class="svc-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Door &amp; Dock Division</h3>
+        <p>Comprehensive 24/7 repair, installation, and maintenance for all commercial door and loading dock systems — with full mechanical and electrical compliance servicing.</p>
+        <ul class="svc-list" style="columns: 2; display: block;">
+          <li>PVC rapid roll doors</li>
+          <li>Sectional &amp; roller doors</li>
+          <li>Freezer &amp; cool room doors</li>
+          <li>Dock levellers &amp; restraints</li>
+          <li>Seals &amp; shelters</li>
+          <li>Safety &amp; wheel chocks</li>
+          <li>Maintenance upgrades</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDUSTRIES ═══════════════════════════════════════ -->
+<section class="industries" id="industries">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Industries We Support</div>
+      <h2 class="section-title">Built for Your Sector</h2>
+      <p class="section-subtitle">Our specialist divisions provide expert support across diverse industrial sectors, delivering reliability and minimal downtime nationwide.</p>
+    </div>
+    <div class="industries-grid">
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h3>Food &amp; Beverage</h3>
+        <p>Hygienic solutions for food and beverage production lines — maintaining compliance and throughput.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Meat &amp; Dairy</h3>
+        <p>Hygienic stainless fabrication and maintenance for meat processing and dairy facility environments.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+        </div>
+        <h3>Cold Storage</h3>
+        <p>Specialised door and dock solutions for freezer and cool room environments, ensuring thermal integrity and safety.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h5l2 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Logistics</h3>
+        <p>Automated warehousing and sortation system installation, integration, and ongoing maintenance.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Manufacturing</h3>
+        <p>Industrial manufacturing support with 24/7 reactive maintenance programs keeping production lines moving.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="ind-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Pharmaceutical</h3>
+        <p>Precision engineering and maintenance for sensitive pharmaceutical processing environments with strict compliance requirements.</p>
+      </div>
+
+    </div>
+
+    <div class="industries-extra">
+      <div>
+        <p class="ie-title">Full Industry Reach</p>
+        <div class="ie-tags">
+          <span class="ie-tag">Baked Goods</span>
+          <span class="ie-tag">Frozen Foods</span>
+          <span class="ie-tag">Confectionery</span>
+          <span class="ie-tag">Supermarket &amp; Retail</span>
+          <span class="ie-tag">Automated Warehousing</span>
+          <span class="ie-tag">Meat Processing</span>
+        </div>
+      </div>
+      <p class="ie-cta"><strong>Delivering reliability and minimal downtime</strong><br/>nationwide across Australia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY MOTION ════════════════════════════════════════ -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Why Motion Access Systems</div>
+      <h2 class="section-title">The Trusted Partner for Industry</h2>
+      <p class="section-subtitle">Six reasons why Australia's leading producers and processors choose Motion Access Systems.</p>
+    </div>
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>24/7 Breakdown Support</h3>
+        <p>Rapid response to minimise downtime and ensure operational continuity at all hours — day, night, and weekends.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>National Project Capability</h3>
+        <p>Extending our expertise across Australia, delivering high-performance projects and maintenance programs nationwide.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Multi-Trade In-House Team</h3>
+        <p>Specialists in Automation, Mechanical Fitting, Fabrication, and Industrial Access — all under one roof.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Hygienic Fabrication Expertise</h3>
+        <p>Deep expertise in food-grade and hygienic stainless steel fabrication designed to meet the strictest processing site requirements.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Strong Safety Culture</h3>
+        <p>Prioritising safety within live operational environments to protect your people, your assets, and your production continuity.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14M12 1v3M12 20v3M1 12h3M20 12h3"/></svg>
+        </div>
+        <h3>Production-Focused Solutions</h3>
+        <p>Practical engineering and maintenance designed with one goal in mind — keeping your production lines moving efficiently.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-cta-bar">
+      <h2>Ready to reduce downtime and improve safety?</h2>
+      <p>Contact Motion Access Systems today. We're available 24/7 for breakdowns and emergency support.</p>
+      <a href="mailto:keith@motion-access-systems.com" class="btn-white">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email Us Now
+      </a>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Company Details</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Company</div>
+              <div class="ci-value">Motion Access Systems Pty Ltd</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Melbourne, Victoria, Australia</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">ACN</div>
+              <div class="ci-value">695 644 225</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Website</div>
+              <div class="ci-value"><a href="http://motionaccesssystems.com">motionaccesssystems.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Get in Touch</h3>
+        <div class="contact-person">
+          <div class="person-avatar">KH</div>
+          <div>
+            <div class="person-name">Keith Harrison</div>
+            <div class="person-role">Motion Access Systems</div>
+          </div>
+        </div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Mobile</div>
+              <div class="ci-value"><a href="tel:0409232165">0409 232 165</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ci-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value"><a href="mailto:keith@motion-access-systems.com">keith@motion-access-systems.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="Motion Access Systems" />
+        <p>Melbourne-based industrial maintenance and project services — delivering reliability, safety, and minimal downtime nationwide.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Industrial Maintenance</a></li>
+          <li><a href="#services">Project &amp; Technical</a></li>
+          <li><a href="#services">Mechanical &amp; Fabrication</a></li>
+          <li><a href="#services">Automated Warehousing</a></li>
+          <li><a href="#services">Door &amp; Dock Division</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="#industries">Food &amp; Beverage</a></li>
+          <li><a href="#industries">Meat &amp; Dairy</a></li>
+          <li><a href="#industries">Cold Storage</a></li>
+          <li><a href="#industries">Logistics</a></li>
+          <li><a href="#industries">Pharmaceutical</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0409232165">0409 232 165</a></li>
+          <li><a href="mailto:keith@motion-access-systems.com">keith@motion-access-systems.com</a></li>
+          <li><a href="#contact">Melbourne, Victoria</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Motion Access Systems Pty Ltd. All rights reserved.</p>
+      <p class="footer-acn">ACN 695 644 225 &nbsp;·&nbsp; Melbourne, Victoria</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
